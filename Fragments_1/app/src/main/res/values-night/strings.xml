@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="CheckBoxText">Принять соглашения</string>
+    <string name="loginButton">Login</string>
+    <string name="detail_2">Detail 2</string>
+    <string name="detail_3">Detail 3</string>
+</resources>
