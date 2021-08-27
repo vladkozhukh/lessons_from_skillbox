@@ -2,6 +2,11 @@ package com.example.a15_2_viewpager
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -40,5 +45,45 @@ class MainActivity : AppCompatActivity() {
         val adapter = OnBoardingAdapter(screens, this)
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 1
+
+        // праграммное перелистование (2 страница,если false - скачок, не плавно)
+        viewPager.setCurrentItem(2, false)
+
+        // получени текущей позиции страницы
+        viewPager.currentItem
+
+        // свойства скролла ориентации перелистования -> горизонтальное
+        viewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+
+        // callback ViewPager
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            // принимает "position" на которую пользоваетль перелистнул ээкран
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                toast("selected position $position")
+            }
+        })
+
+        // анимация переключения страниц
+        viewPager.setPageTransformer(object : ViewPager2.PageTransformer {
+            override fun transformPage(page: View, position: Float) {
+                when {
+                    position < -1 || position > 1 -> { // логика крайних страниц при полном перелистывании
+                        page.alpha = 0f
+                    }
+                    position <= 0 -> {  // логика при свайпе с левой от видимой
+                        page.alpha = 1 + position
+                    }
+                    position <= 1 -> { // логика при свайпе с правой от видимой
+                        page.alpha = 1 - position
+                    }
+                }
+            }
+        })
+    }
+
+    private fun toast(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 }
+

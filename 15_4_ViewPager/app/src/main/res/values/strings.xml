@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">15_2_ViewPager</string>
+    <string name="app_name">15_4_ViewPager</string>
     <string name="onboarding_text_1">onboarding_text_1</string>
     <string name="onboarding_text_2">onboarding_text_2</string>
     <string name="onboarding_text_3">onboarding_text_3</string>
