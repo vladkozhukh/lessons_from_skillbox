@@ -31,7 +31,7 @@ class DialogActivity : AppCompatActivity(R.layout.activity_dialog) {
         showDialogFragment.setOnClickListener {
             showDialogFragment()
         }
-        showButtonDialogButton.setOnClickListener { showBottomSheetDialog() }
+        showSheetDialogButton.setOnClickListener { showBottomSheetDialog() }
     }
 
     // обчный диалог

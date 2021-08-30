@@ -36,4 +36,10 @@
         android:layout_height="wrap_content"
         android:text="Show dialog fragment" />
 
+    <Button
+        android:id="@+id/showSheetDialogButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show sheet dialog button" />
+
 </LinearLayout>
