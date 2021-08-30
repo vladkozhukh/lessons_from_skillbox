@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">15_6_ViewPager</string>
+    <string name="onboarding_text_1">onboarding_text_1</string>
+    <string name="onboarding_text_2">onboarding_text_2</string>
+    <string name="onboarding_text_3">onboarding_text_3</string>
+    <string name="onboarding_text_4">onboarding_text_4</string>
+    <string name="onboarding_text_5">onboarding_text_5</string>
+    <string name="attention_text">Attention text</string>
+</resources>
