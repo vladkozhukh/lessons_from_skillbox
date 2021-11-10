@@ -14,7 +14,7 @@
 
     <Button
         android:layout_marginTop="100dp"
-        android:id="@+id/getCurrentLocationB"
+        android:id="@+id/getAllowButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Разрешить"
@@ -22,7 +22,7 @@
 
     <Button
         android:layout_marginTop="100dp"
-        android:id="@+id/getCurrentLocationB2"
+        android:id="@+id/getCurrentLocationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Получить локацию"

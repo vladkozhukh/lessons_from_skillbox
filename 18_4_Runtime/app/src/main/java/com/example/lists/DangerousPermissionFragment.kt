@@ -1,21 +1,26 @@
 package com.example.lists
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.view.isGone
-import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_permission_dangerous.*
 
 class DangerousPermissionFragment : Fragment(R.layout.fragment_permission_dangerous) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         positionTextView.text = "Для отображения списка локаций необходимо разрешение"
-        getCurrentLocationB.setOnClickListener {
+        getAllowButton.setOnClickListener {
             showLocationWithPermissionCheck()
+        }
+
+        getCurrentLocationButton.setOnClickListener {
+            showLocation()
         }
 
     }
@@ -49,10 +54,35 @@ class DangerousPermissionFragment : Fragment(R.layout.fragment_permission_danger
 
     private fun showLocationInfo() {
         positionTextView.text = "Нет локаций для отображения"
-        getCurrentLocationB.isGone = true
-        getCurrentLocationB2.isVisible = true
-        toast("showLocationInfo")
+        getAllowButton.isGone = true
+        getCurrentLocationButton.isVisible = true
     }
+
+    @SuppressLint("MissingPermission")
+    private fun showLocation(){
+        if (getCurrentLocationButton.isVisible){
+            LocationServices.getFusedLocationProviderClient(requireContext())
+                .lastLocation
+                .addOnSuccessListener {
+                    it?.let {
+                        positionTextView.text = """
+                        Lat = ${it.latitude}
+                        Lng = ${it.longitude}
+                        Alt = ${it.altitude}
+                        Speed = ${it.speed}
+                        Accuracy = ${it.accuracy}
+                    """.trimIndent()
+                    } ?: toast("Локация отсутсвует")
+                }
+                .addOnCanceledListener {
+                    toast("запрос локации был отменен")
+                }
+                .addOnFailureListener {
+                    toast("запрос локации завершился неудачно")
+                }
+        }
+    }
+
 
     private fun requestLocationPermission() {
         requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
