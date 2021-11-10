@@ -10,5 +10,6 @@
     <string name="linear_lm">Linear Layout Manager</string>
     <string name="grid_lm">Grid Layout Manager</string>
     <string name="staggered_grid_lm">Staggered Grid Layout Manager</string>
+    <string name="location_with_permission">Location with permission</string>
 
 </resources>

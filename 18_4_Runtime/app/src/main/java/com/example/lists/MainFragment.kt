@@ -25,6 +25,9 @@ class MainFragment: Fragment(R.layout.fragment_main), Navigator {
         staggeredLayoutManager.setOnClickListener {
             navigateTo(ImageStaggeredFragment())
         }
+        locationWithPermission.setOnClickListener {
+            navigateTo(DangerousPermissionFragment())
+        }
     }
 
     override fun navigateTo(fragment: Fragment) {
