@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Lists</string>
-    <string name="Selected_tech">Выбрать технику</string>
-
-    <string-array name="Tech">
-        <item>Башенный кран</item>
-        <item>Автомобильный кран</item>
-    </string-array>
-</resources>
