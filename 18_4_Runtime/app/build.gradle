@@ -57,4 +57,6 @@ dependencies {
     implementation 'com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.0'
     // Google play services
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+    // ThreeTenABP date & time
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.4'
 }

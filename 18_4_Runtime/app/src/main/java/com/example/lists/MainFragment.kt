@@ -10,21 +10,7 @@ class MainFragment: Fragment(R.layout.fragment_main), Navigator {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listFragmentButton.setOnClickListener {
-            navigateTo(ListFragment())
-        }
 
-        linearLayoutManager.setOnClickListener {
-            navigateTo(ImageLinearFragment())
-        }
-
-        gridLayoutManager.setOnClickListener {
-            navigateTo(ImageGridFragment())
-        }
-
-        staggeredLayoutManager.setOnClickListener {
-            navigateTo(ImageStaggeredFragment())
-        }
         locationWithPermission.setOnClickListener {
             navigateTo(DangerousPermissionFragment())
         }

@@ -21,27 +21,6 @@
         android:text="@string/list_fragment" />
 
     <Button
-        android:id="@+id/linearLayoutManager"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/linear_lm" />
-
-    <Button
-        android:id="@+id/gridLayoutManager"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/grid_lm" />
-
-    <Button
-        android:id="@+id/staggeredLayoutManager"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/staggered_grid_lm" />
-
-    <Button
         android:id="@+id/locationWithPermission"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
