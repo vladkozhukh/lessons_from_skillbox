@@ -9,19 +9,22 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.lists.databinding.FragmentPermissionDangerousBinding
 import com.google.android.gms.location.LocationServices
 import kotlinx.android.synthetic.main.fragment_permission_dangerous.*
 import org.threeten.bp.Instant
 import kotlin.random.Random
 
-class DangerousPermissionFragment : Fragment(R.layout.fragment_permission_dangerous) {
-
+class DangerousPermissionFragment : Fragment() {
+    private var fragmentPermissionDangerous: FragmentPermissionDangerousBinding? = null
     private var datasets: List<Dataset> = listOf()
     private var datasetAdapter: DatasetAdapter? = null
     private var selectedDatasetInstant: Instant? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val binding = FragmentPermissionDangerousBinding.bind(view)
+        fragmentPermissionDangerous = binding
         initList()
         initLocationInfo()
         messageTextView.text = "Для отображения списка локаций необходимо разрешение"
@@ -31,7 +34,10 @@ class DangerousPermissionFragment : Fragment(R.layout.fragment_permission_danger
 
     }
 
-
+    override fun onDestroyView() {
+        fragmentPermissionDangerous = null
+        super.onDestroyView()
+    }
 
     private fun initList() = with(dataSetList) {
         datasetAdapter = DatasetAdapter()
