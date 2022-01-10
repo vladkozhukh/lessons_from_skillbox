@@ -1,4 +1,4 @@
-package com.example.kitchen
+package com.example.kitchen.kotlin
 /* Условные выражения */
 
 fun main() {

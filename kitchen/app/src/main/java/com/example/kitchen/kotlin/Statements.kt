@@ -1,4 +1,4 @@
-package com.example.kitchen
+package com.example.kitchen.kotlin
 // Expression-выражение.
 // Набор значений, переменных, операторов и функций, которые вычисляются для того, чтобы произвести другое значение
 

@@ -1,4 +1,4 @@
-package com.example.kitchen
+package com.example.kitchen.kotlin
 
 fun main() {
     val numbers = listOf("one", "two", "three", "four")

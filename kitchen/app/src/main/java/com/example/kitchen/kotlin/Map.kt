@@ -1,4 +1,4 @@
-package com.example.kitchen
+package com.example.kitchen.kotlin
 
 fun main() {
     val pair1 = Pair("key", "value")

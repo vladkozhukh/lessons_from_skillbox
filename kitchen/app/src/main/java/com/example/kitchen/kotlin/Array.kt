@@ -1,4 +1,4 @@
-package com.example.kitchen
+package com.example.kitchen.kotlin
 // Array-массив и метод arrayOf. Метод arrayOf создаёт массив из переданных значений
 
 fun main() {
