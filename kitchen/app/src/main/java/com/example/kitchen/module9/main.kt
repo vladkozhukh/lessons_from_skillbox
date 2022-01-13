@@ -11,6 +11,10 @@ fun main() {
     val boeing = boeingType()
     println(boeing.getInfo())
     boeing.getSeatScheme()
+    boeing.getPassenger(Seat(0, 'c'))
+        ?.getInfo()
+        ?.let { println(it) }
+        ?: println("not this passenger")
 
     println("=========================")
 
@@ -23,7 +27,9 @@ fun main() {
         val passenger = Passenger(
             name = "Ivan",
             lastName = "Petrov",
-            passport = "${Random.nextInt(1000, 9999)} ${Random.nextInt(100000, 999999)}",
+            document = MultiPassport(
+                Random.nextInt(1000,9999).toString()
+            ),
             seat = seat
         )
         zeppelin.addPassenger(passenger)
@@ -31,6 +37,10 @@ fun main() {
 
     println(zeppelin.getInfo())
     zeppelin.getSeatScheme()
+    zeppelin.getPassenger(Seat(0, 'c'))
+        ?.getInfo()
+        ?.let { println(it) }
+        ?: println("not this passenger")
 }
 
 fun boeingType(): Boeing737 {
@@ -43,7 +53,10 @@ fun boeingType(): Boeing737 {
         val passenger = Passenger(
             name = "Ivan",
             lastName = "Petrov",
-            passport = "${Random.nextInt(1000, 9999)} ${Random.nextInt(100000, 999999)}",
+            document = ForeignPassport(
+                serial = Random.nextInt(1000,9999).toString(),
+                number = Random.nextInt(1000000,9999999).toString()
+            ),
             seat = seat
         )
         boeing.addPassenger(passenger)
