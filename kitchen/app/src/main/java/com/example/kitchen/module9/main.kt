@@ -3,14 +3,15 @@ package com.example.kitchen.module9
 import kotlin.random.Random
 
 fun main() {
-//    val train = Train(10000)
-//    println("capacity - ${train.capacity} and max weight - ${train.maxWeight}")
-//    train.move()
 
+    val boeing = Boeing737()
 
-    val boeing = boeingType()
+    fillAircraft(boeing) /* для класса Boeing737() */
+
     println(boeing.getInfo())
     boeing.getSeatScheme()
+
+    // расписан индивидуально НЕ полиморфизм.
     boeing.getPassenger(Seat(0, 'c'))
         ?.getInfo()
         ?.let { println(it) }
@@ -19,47 +20,51 @@ fun main() {
     println("=========================")
 
     val zeppelin = Zeppelin()
-    val passengerCountZep = Random.nextInt(1, zeppelin.capacity)
 
-    for (i in 0 until passengerCountZep) {
-        val seat = zeppelin.getAvailableSeat() ?: return
-
-        val passenger = Passenger(
-            name = "Ivan",
-            lastName = "Petrov",
-            document = MultiPassport(
-                Random.nextInt(1000,9999).toString()
-            ),
-            seat = seat
-        )
-        zeppelin.addPassenger(passenger)
-    }
+    fillAircraft(zeppelin)  /* для класса Zeppelin() */
 
     println(zeppelin.getInfo())
+
     zeppelin.getSeatScheme()
-    zeppelin.getPassenger(Seat(0, 'c'))
-        ?.getInfo()
-        ?.let { println(it) }
-        ?: println("not this passenger")
+
+
+    /* Параметрический полиморфизм */ // применив функцию getPassengerInfo(..)
+    getPassengerInfo(zeppelin, Seat(0, 'b'))
+    getPassengerInfo(zeppelin, Seat(0, 'c'))
 }
 
-fun boeingType(): Boeing737 {
-    val boeing = Boeing737()
-    val passengerCount = Random.nextInt(1, boeing.capacity)
+// Полиморфизм в виде функции
+fun getPassengerInfo(aircraft: Aircraft, seat: Seat) {
+    aircraft.getPassenger(seat)
+        ?.getInfo()
+        ?.let { println(it) }
+        ?: println("seat is empty")
+}
 
-    for (i in 0 until passengerCount) {
-        val seat = boeing.getAvailableSeat() ?: return boeing
-
+// упрощение, чтобы не повторять код для классов Aircraft (Boeing737, Zeppelin)
+fun fillAircraft(aircraft: Aircraft){
+    val passengerCountInAirCraft = Random.nextInt(1, aircraft.capacity)
+    for (i in 0 until passengerCountInAirCraft) {
+        val seat = aircraft.getAvailableSeat() ?: return
         val passenger = Passenger(
             name = "Ivan",
             lastName = "Petrov",
-            document = ForeignPassport(
-                serial = Random.nextInt(1000,9999).toString(),
-                number = Random.nextInt(1000000,9999999).toString()
-            ),
+
+            document = getDocumentPrint(),
             seat = seat
         )
-        boeing.addPassenger(passenger)
+        aircraft.addPassenger(passenger)
     }
-    return boeing
 }
+// функция условия через интерфейс
+fun getDocumentPrint(): Document =
+    when (Random.nextInt(0, 2)) {
+        0 -> ForeignPassport(
+            serial = Random.nextInt(1000, 9999).toString(),
+            number = Random.nextInt(1000000, 9999999).toString()
+        )
+        else -> MultiPassport(
+            number = Random.nextInt(1000, 9999).toString(),
+            date = "01.01.1999"
+        )
+    }
