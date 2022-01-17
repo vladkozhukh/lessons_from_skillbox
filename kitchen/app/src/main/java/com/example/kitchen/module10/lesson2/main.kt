@@ -6,7 +6,8 @@ fun main() {
         RadioPhone(),
         SmartFridge(),
         AppleWatch(),
-        DiskPhone())
+        DiskPhone()
+    )
 
     devices.forEach{it.call("+375291504185") }
 

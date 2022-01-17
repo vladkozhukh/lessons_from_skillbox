@@ -1,0 +1,9 @@
+package com.example.kitchen.module11.lesson3
+
+class ForeignPassport(
+    private val serial: String,
+    private val number: String
+): Document {
+    override fun getStringId(): String = "$serial $number"
+    override fun getType(): String = "Foreign passport"
+}

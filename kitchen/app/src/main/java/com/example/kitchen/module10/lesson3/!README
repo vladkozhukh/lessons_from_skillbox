@@ -14,13 +14,29 @@
 
 Создаем интерфейс Document()
 
-Создаем 2 класса:
+1. Создаем 2 класса:
  ForeignPassport()
  MultiPassport()
 
-Применяем интерфейс и созданные классы в main.kt
+2. прописываем условия в Passenger():
+     fun getInfo() =
+         "$name $lastName with: \n" +
+                 "${document.getType()} - ${document.getStringId()}"
 
-и прописываем условия в Passenger():
-    fun getInfo() =
-        "$name $lastName with: \n" +
-                "${document.getType()} - ${document.getStringId()}"
+3. Применяем интерфейс и созданные классы в main.kt:
+    ...
+    boeing.getPassenger(Seat(0, 'c'))
+        ?.getInfo()
+        ?.let { println(it) }
+        ?: println("not this passenger")
+
+
+    zeppelin.getPassenger(Seat(0, 'c'))
+            ?.getInfo()
+            ?.let { println(it) }
+            ?: println("not this passenger")
+
+4. Если необходимо подкорректировать нужный класс с добавление доп.поля
+см. класс MultiPassport()
+
+P.s. За основу взять материал из "module9.lesson4"
