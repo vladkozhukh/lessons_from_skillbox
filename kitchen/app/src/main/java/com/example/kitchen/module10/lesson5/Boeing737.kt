@@ -1,4 +1,4 @@
-package com.example.kitchen.module9
+package com.example.kitchen.module10.lesson5
 
 class Boeing737 : Aircraft(10000) {
     override val brand = "Boeing"

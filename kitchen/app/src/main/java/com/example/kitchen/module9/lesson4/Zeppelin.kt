@@ -1,4 +1,4 @@
-package com.example.kitchen.module9
+package com.example.kitchen.module9.lesson4
 
 class Zeppelin : Aircraft(1200) {
     override val brand: String = "Zeppelin"

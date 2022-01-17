@@ -1,4 +1,4 @@
-package com.example.kitchen.module9
+package com.example.kitchen.module10.lesson5
 
 interface Document {
     fun getStringId(): String
