@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">kitchen</string>
+    <string name="input_name">Введите свое имя</string>
 </resources>
