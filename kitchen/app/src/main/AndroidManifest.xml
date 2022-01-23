@@ -20,6 +20,11 @@
         <activity
             android:name=".module15.ToolbarActivity"
             android:label="@string/toolbar"
+            android:parentActivityName=".module14.MainActivity">
+        </activity>
+        <activity
+            android:name=".module15.CoordinatorActivity"
+            android:label="@string/coordinator"
             android:parentActivityName=".module14.MainActivity"
             android:exported="true">
             <intent-filter>

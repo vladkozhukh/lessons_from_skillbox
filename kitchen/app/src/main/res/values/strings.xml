@@ -8,4 +8,5 @@
     <string name="movies">фильмы</string>
     <string name="serials">сериалы</string>
     <string name="search">поиск</string>
+    <string name="coordinator">Coordinator</string>
 </resources>
