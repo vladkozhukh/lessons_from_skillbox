@@ -1,6 +1,9 @@
 package com.example.kitchen.module15
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.os.Message
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -8,24 +11,32 @@ import androidx.appcompat.widget.SearchView
 import com.example.kitchen.R
 import kotlinx.android.synthetic.main.activity_toolbar.*
 
-class ToolbarActivity : AppCompatActivity() {
+class ToolbarActivity : AppCompatActivity(R.layout.activity_toolbar) {
     private val users = listOf(
         "Cat", "Man", "Dog"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_toolbar)
+        toolbar.title = "new toolbar" /* вариант записи */
+        toolbar.setTitle(R.string.toolbar) /* правильнее записать будет так */
 
-        toolbar.setTitle(R.string.toolbar) /*правильнее записать будет так*/
-        toolbar.title = "new toolbar" /*второй вариант записи*/
+        val message = intent.getStringExtra(KEY_MESSAGE)
+        textFromMessageEditText.text = message
+
         initToolBar()
 
     }
 
     private fun initToolBar() {
         toolbar.setNavigationOnClickListener {
-            toast("Назад")
+
+            val toolbarActivityIntent = Intent(
+                this,
+                CoordinatorActivity::class.java
+            )
+            startActivity(toolbarActivityIntent)
+            toast("Ooh, you back to coordinatorActivityClass again.")
         }
 
         toolbar.setOnMenuItemClickListener { it ->
@@ -78,6 +89,17 @@ class ToolbarActivity : AppCompatActivity() {
             }
 
         })
+
+    }
+
+    companion object {
+        private const val KEY_MESSAGE = "message key"
+
+        fun getIntent(context: Context, message: String?): Intent{
+            return Intent(context, ToolbarActivity::class.java).putExtra(
+                KEY_MESSAGE, message
+            )
+        }
     }
 
     private fun toast(text: String) {

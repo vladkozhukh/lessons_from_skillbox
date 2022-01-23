@@ -16,6 +16,15 @@
             app:layout_scrollFlags="scroll|enterAlways"
             app:title="@string/coordinator" />
 
+        <EditText
+            android:id="@+id/messageEditText"
+            style="@style/ToolbarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/enter_text"
+            app:layout_scrollFlags="scroll|enterAlways" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -32,10 +41,11 @@
     </androidx.core.widget.NestedScrollView>
 
     <Button
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        android:text="@string/add_view_button"
+        android:id="@+id/goToToolbarActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"/>
+        android:layout_gravity="bottom|center"
+        android:text="@string/toolbar_activity"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
