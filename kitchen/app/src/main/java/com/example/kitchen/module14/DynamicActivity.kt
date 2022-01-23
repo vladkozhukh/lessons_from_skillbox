@@ -15,7 +15,6 @@ class DynamicActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dynamic)
-
         addTextButton.setOnClickListener {
             addText()
         }

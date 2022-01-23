@@ -4,4 +4,8 @@
     <string name="add_text_button">добавить text</string>
     <string name="enter_text">Введите текст</string>
     <string name="add_view_button">добавить view</string>
+    <string name="toolbar">Toolbar</string>
+    <string name="movies">фильмы</string>
+    <string name="serials">сериалы</string>
+    <string name="search">поиск</string>
 </resources>

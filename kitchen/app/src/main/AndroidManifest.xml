@@ -11,14 +11,19 @@
         android:theme="@style/Theme.Kitchen">
         <activity
             android:name=".module14.MainActivity"
-            android:exported="true">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
-            android:name=".module14.DynamicActivity"
+            android:name=".module14.DynamicActivity">
+        </activity>
+
+        <activity
+            android:name=".module15.ToolbarActivity"
+            android:label="@string/toolbar"
+            android:parentActivityName=".module14.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
