@@ -3,7 +3,6 @@ package com.example.kitchen.module15
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.os.Message
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -60,12 +59,12 @@ class ToolbarActivity : AppCompatActivity(R.layout.activity_toolbar) {
         val searchItem = toolbar.menu.findItem(R.id.action_search)
         searchItem.setOnActionExpandListener(object : MenuItem.OnActionExpandListener {
             override fun onMenuItemActionExpand(item: MenuItem?): Boolean {
-                expandTextView.text = "search expanded"
+                expandTextView.text = getString(R.string.search_expanded)
                 return true
             }
 
             override fun onMenuItemActionCollapse(p0: MenuItem?): Boolean {
-                expandTextView.text = "search collapsed"
+                expandTextView.text = getString(R.string.search_collapsed)
                 return true
             }
 

@@ -36,8 +36,10 @@
             android:id="@+id/longTextViewContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start 1546546 4564654 465 456465 4 6454 654 65 45 4 4 64 654 564 54546 654  65 454 56 465 456 46 46 46 54 654"
-            android:textSize="70sp" />
+            android:textAlignment="center"
+            android:textIsSelectable="true"
+            android:textSize="24sp"
+            android:textStyle="italic" />
     </androidx.core.widget.NestedScrollView>
 
     <Button

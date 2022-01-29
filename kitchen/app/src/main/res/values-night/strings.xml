@@ -7,7 +7,9 @@
     <string name="toolbar">Toolbar</string>
     <string name="movies">фильмы</string>
     <string name="serials">сериалы</string>
-    <string name="search">поиск</string>
+    <string name="search">search</string>
     <string name="coordinator">Coordinator</string>
     <string name="toolbar_activity">toolbar activity</string>
+    <string name="text">textBody</string>
+    <string name="search_collapsed">search collapsed</string>
 </resources>
