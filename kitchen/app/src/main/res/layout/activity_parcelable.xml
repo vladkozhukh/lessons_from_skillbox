@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="24dp">
+
+    <TextView
+        android:id="@+id/textViewState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="24sp"
+        tools:text="0" />
+
+    <Button
+        android:id="@+id/incrementButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="@id/textViewState"
+        app:layout_constraintStart_toStartOf="@id/textViewState"
+        app:layout_constraintTop_toBottomOf="@id/textViewState" />
+
+    <Button
+        android:id="@+id/decrementButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        app:layout_constraintEnd_toEndOf="@id/incrementButton"
+        app:layout_constraintStart_toStartOf="@id/incrementButton"
+        app:layout_constraintTop_toBottomOf="@id/incrementButton" />
+
+    <EditText
+        android:id="@+id/editTextState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/enter_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@id/decrementButton"
+        app:layout_constraintStart_toStartOf="@id/decrementButton"
+        app:layout_constraintTop_toBottomOf="@id/decrementButton"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,7 +25,11 @@
         <activity
             android:name=".module15.CoordinatorActivity"
             android:label="@string/coordinator"
-            android:parentActivityName=".module14.MainActivity"
+            android:parentActivityName=".module14.MainActivity">
+        </activity>
+        <activity
+            android:name=".module16.MainActivity"
+            android:label="@string/parcelable"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -12,4 +12,5 @@
     <string name="toolbar_activity">toolbar activity</string>
     <string name="text">textBody</string>
     <string name="search_collapsed">search collapsed</string>
+    <string name="parcelable">Parcelable</string>
 </resources>
