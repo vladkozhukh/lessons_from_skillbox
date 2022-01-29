@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val nameTextView = findViewById<TextView>(R.id.nameText)
-        val nameInput = findViewById<EditText>(R.id.inputText)
+        val nameInput = findViewById<EditText>(R.id.inputEditText)
 
         clearButton.setOnClickListener {
             makeOperationOnClick()
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed(
             {
                 container.removeView(progressBar)
-                inputText.setText("")
+                inputEditText.setText("")
             },2000
         )
     }

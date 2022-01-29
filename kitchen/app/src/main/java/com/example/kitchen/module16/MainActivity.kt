@@ -1,5 +1,6 @@
 package com.example.kitchen.module16
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kitchen.R
@@ -12,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_parcelable)
         updateTextView()
+        setEmailParamsFromIntent()
 
         incrementButton.setOnClickListener {
             state = state.increment()
@@ -22,6 +24,13 @@ class MainActivity : AppCompatActivity() {
             state = state.decrement()
             updateTextView()
         }
+    }
+
+    private fun setEmailParamsFromIntent() {
+        val address = intent.getStringArrayExtra(Intent.EXTRA_EMAIL)
+        val message = intent.getStringExtra(Intent.EXTRA_SUBJECT)
+        textViewFromEmail.text = message ?: ("message is not set")
+        emailViewFromEmail.text = address?.joinToString() ?: ("Email address is not set")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

@@ -25,7 +25,7 @@ class DynamicActivity : AppCompatActivity() {
     }
 
     private fun addView() {
-        val textToAdd = inputText.text.toString()
+        val textToAdd = inputEditText.text.toString()
         val view = layoutInflater.inflate(R.layout.item_view, containerDynamic, false)
         view.apply {
             textView.text = textToAdd
@@ -37,7 +37,7 @@ class DynamicActivity : AppCompatActivity() {
     }
 
     private fun addText() {
-        val textToAdd = inputText.text.toString()
+        val textToAdd = inputEditText.text.toString()
         val textView = TextView(this).apply {
             text = textToAdd
             layoutParams = LinearLayout.LayoutParams(

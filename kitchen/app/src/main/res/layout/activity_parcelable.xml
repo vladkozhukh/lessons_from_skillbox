@@ -46,5 +46,23 @@
         app:layout_constraintStart_toStartOf="@id/decrementButton"
         app:layout_constraintTop_toBottomOf="@id/decrementButton"/>
 
+    <TextView
+        android:id="@+id/textViewFromEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="TextViewFromEmail"
+        app:layout_constraintEnd_toEndOf="@id/editTextState"
+        app:layout_constraintStart_toStartOf="@id/editTextState"
+        app:layout_constraintTop_toBottomOf="@id/editTextState"/>
+    <TextView
+        android:id="@+id/emailViewFromEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="EmailViewFromEmail"
+        app:layout_constraintEnd_toEndOf="@id/textViewFromEmail"
+        app:layout_constraintStart_toStartOf="@id/textViewFromEmail"
+        app:layout_constraintTop_toBottomOf="@id/textViewFromEmail"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

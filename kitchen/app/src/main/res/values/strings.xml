@@ -17,4 +17,7 @@
     <string name="search_expanded">search expanded</string>
     <string name="search_collapsed">search collapsed</string>
     <string name="parcelable">Parcelable</string>
+    <string name="email_address">Введите почту</string>
+    <string name="send_to">отправить</string>
+    <string name="intent">intent</string>
 </resources>
