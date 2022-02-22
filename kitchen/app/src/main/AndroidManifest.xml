@@ -25,7 +25,12 @@
         <activity
             android:name=".module15.CoordinatorActivity"
             android:label="@string/coordinator"
-            android:parentActivityName=".module14.MainActivity">
+            android:parentActivityName=".module14.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".module16.MainActivity"
@@ -41,10 +46,6 @@
             android:name=".module17.SecondActivity"
             android:label="@string/intent"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
     </application>
 
