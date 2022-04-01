@@ -4,7 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:enabled="false"
+        android:text="10"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -25,7 +39,7 @@
         android:layout_height="150dp"
         android:layout_marginTop="16dp"
         android:indeterminateOnly="false"
-        android:max="100"
+        android:max="60"
         android:progressDrawable="@drawable/ic_circle_progress"
         android:rotation="-90"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,20 +51,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:text="+10"
+        android:text="+1"
         app:layout_constraintEnd_toStartOf="@id/decrement"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/slider" />
 
     <Button
         android:id="@+id/decrement"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
-        android:text="-10"
+        android:text="-1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/increment"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/slider" />
 
     <CheckBox
         android:id="@+id/checkbox"
@@ -74,40 +88,35 @@
         android:id="@+id/radioGroup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/switch_material"
+        app:layout_constraintEnd_toEndOf="@id/checkbox"
         app:layout_constraintStart_toStartOf="@id/checkbox"
-        app:layout_constraintEnd_toEndOf="@id/checkbox">
+        app:layout_constraintTop_toBottomOf="@id/switch_material">
+
         <RadioButton
             android:id="@+id/radioButtonOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Radio button one"/>
+            android:text="Radio button one" />
+
         <RadioButton
             android:id="@+id/radioButtonTwo"
-            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Radio button two"/>
+            android:checked="true"
+            android:text="Radio button two" />
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="0dp"
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Password"
-        android:inputType="numberPassword"
-        app:layout_constraintTop_toBottomOf="@id/email"
+        android:enabled="false"
+        android:stepSize="10"
+        android:valueFrom="10"
+        android:valueTo="60"
+        app:labelBehavior="gone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progressBarCircular" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

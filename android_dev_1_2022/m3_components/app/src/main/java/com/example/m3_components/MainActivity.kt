@@ -7,49 +7,63 @@ import android.widget.Toast
 import com.example.m3_components.databinding.ActivityMainBinding
 import com.google.android.material.snackbar.Snackbar
 
-private const val MAX = 100
-private const val MIN = 0
-private const val INCREMENT = 10
 
 class MainActivity : AppCompatActivity() {
 
-    private var currentProgress: Int = 0
+    private var maxTimer = 0
+    private val minTimer = 0
+    private val incrementTimer = 1
+    private var currentProgress = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val updateProgress = {
+        maxTimer = binding.slider.valueFrom.toInt()
+        binding.progressBarCircular.max = binding.slider.value.toInt()
+
+        val updateProgressBar = {
             binding.progressBarCircular.progress = currentProgress
+            binding.textViewTimer.text = (maxTimer - currentProgress).toString()
+        }
+
+        binding.slider.addOnChangeListener { _, value, _ ->
+            binding.progressBarCircular.max = value.toInt()
+            maxTimer = value.toInt()
+            updateProgressBar.invoke()
         }
 
         binding.increment.setOnClickListener {
-            if (currentProgress < MAX) {
-                currentProgress += INCREMENT
-                updateProgress.invoke()
+            if (maxTimer > currentProgress) {
+                currentProgress += incrementTimer
+                updateProgressBar.invoke()
             } else {
-                if (currentProgress >= MAX) {
-                    currentProgress = INCREMENT
-                    updateProgress.invoke()
+                if (currentProgress >= maxTimer) {
+                    currentProgress = incrementTimer
+                    updateProgressBar.invoke()
                 }
             }
         }
 
         binding.decrement.setOnClickListener {
-            if (currentProgress > MIN) {
-                currentProgress -= INCREMENT
-                updateProgress.invoke()
+            if (currentProgress > minTimer) {
+                currentProgress -= incrementTimer
+                updateProgressBar.invoke()
             }
         }
         binding.checkbox.setOnCheckedChangeListener { _, isCheck ->
             if (isCheck) {
                 binding.decrement.isEnabled = true
                 binding.increment.isEnabled = isCheck
+                binding.slider.isEnabled = isCheck
+                binding.textViewTimer.setTextColor(resources.getColor(R.color.purple_500))
                 checked("Checked")
             } else {
                 binding.decrement.isEnabled = false
                 binding.increment.isEnabled = isCheck
+                binding.slider.isEnabled = isCheck
+                binding.textViewTimer.setTextColor(resources.getColor(android.R.color.darker_gray))
                 checked("Unchecked")
             }
         }
