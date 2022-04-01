@@ -2,7 +2,7 @@ package com.example.m3_components
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.m2_layout.databinding.ActivityMainBinding
+import com.example.m3_components.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -12,13 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.customView.setStringTextUp("Вверхняя строчка и какой-то длинный текст")
-        binding.customView.setStringTextDown("Нижняя строчка и какой-то длинный текст")
-
-        binding.textViewActivity.text = "Текст активити"
-
-
     }
 
 
