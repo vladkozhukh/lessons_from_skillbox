@@ -2,121 +2,66 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
     android:padding="16dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textViewTimer"
+        android:id="@+id/countDownTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:enabled="false"
-        android:text="10"
-        android:textColor="@android:color/darker_gray"
+        android:text="Countdown timer"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="16dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@android:color/darker_gray"
-        tools:ignore="ContentDescription" />
-
     <ProgressBar
         android:id="@+id/progressBarCircular"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:indeterminateOnly="false"
         android:max="60"
+        android:progress="0"
         android:progressDrawable="@drawable/ic_circle_progress"
         android:rotation="-90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/countDownTimer" />
 
-    <Button
-        android:id="@+id/increment"
+    <TextView
+        android:id="@+id/textViewTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="+1"
-        app:layout_constraintEnd_toStartOf="@id/decrement"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/slider" />
-
-    <Button
-        android:id="@+id/decrement"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:enabled="false"
-        android:text="-1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/increment"
-        app:layout_constraintTop_toBottomOf="@+id/slider" />
-
-    <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Enabled buttons / Включить кнопки"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/increment" />
-
-    <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_material"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Enabled image / Включить картинку"
-        app:layout_constraintEnd_toEndOf="@id/checkbox"
-        app:layout_constraintStart_toStartOf="@id/checkbox"
-        app:layout_constraintTop_toBottomOf="@id/checkbox" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@id/checkbox"
-        app:layout_constraintStart_toStartOf="@id/checkbox"
-        app:layout_constraintTop_toBottomOf="@id/switch_material">
-
-        <RadioButton
-            android:id="@+id/radioButtonOne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Radio button one" />
-
-        <RadioButton
-            android:id="@+id/radioButtonTwo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Radio button two" />
-    </RadioGroup>
+        android:textSize="48sp"
+        android:text="0"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/progressBarCircular"
+        app:layout_constraintEnd_toEndOf="@id/progressBarCircular"
+        app:layout_constraintStart_toStartOf="@id/progressBarCircular"
+        app:layout_constraintTop_toTopOf="@id/progressBarCircular" />
 
     <com.google.android.material.slider.Slider
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:enabled="false"
-        android:stepSize="10"
-        android:valueFrom="10"
-        android:valueTo="60"
-        app:labelBehavior="gone"
+        android:stepSize="5"
+        android:valueFrom="5"
+        android:valueTo="15"
+        app:labelBehavior="floating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressBarCircular" />
 
+    <Button
+        android:id="@+id/start"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slider" />
 </androidx.constraintlayout.widget.ConstraintLayout>

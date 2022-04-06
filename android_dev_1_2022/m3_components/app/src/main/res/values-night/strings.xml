@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">m3_components</string>
     <string name="stop">stop</string>
     <string name="start">start</string>
 </resources>

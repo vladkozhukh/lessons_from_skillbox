@@ -2,102 +2,67 @@ package com.example.m3_components
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import android.os.CountDownTimer
 import com.example.m3_components.databinding.ActivityMainBinding
-import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.*
 
 
 class MainActivity : AppCompatActivity() {
-
-    private var maxTimer = 0
-    private val minTimer = 0
-    private val incrementTimer = 1
-    private var currentProgress = 0
+    private lateinit var binding: ActivityMainBinding
+    private var timer: CountDownTimer? = null
+    private val scope = CoroutineScope(Job() + Dispatchers.Default)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.textViewTimer.text = binding.slider.valueFrom.toInt().toString()
 
-        maxTimer = binding.slider.valueFrom.toInt()
-        binding.progressBarCircular.max = binding.slider.value.toInt()
-
-        val updateProgressBar = {
-            binding.progressBarCircular.progress = currentProgress
-            binding.textViewTimer.text = (maxTimer - currentProgress).toString()
-        }
-
-        binding.slider.addOnChangeListener { _, value, _ ->
-            binding.progressBarCircular.max = value.toInt()
-            maxTimer = value.toInt()
-            updateProgressBar.invoke()
-        }
-
-        binding.increment.setOnClickListener {
-            if (maxTimer > currentProgress) {
-                currentProgress += incrementTimer
-                updateProgressBar.invoke()
-            } else {
-                if (currentProgress >= maxTimer) {
-                    currentProgress = incrementTimer
-                    updateProgressBar.invoke()
+        val update = {
+            binding.apply {
+                progressBarCircular.apply {
+                    max = slider.valueFrom.toInt()
+                    progress = slider.valueFrom.toInt()
                 }
             }
         }
+        update.invoke()
 
-        binding.decrement.setOnClickListener {
-            if (currentProgress > minTimer) {
-                currentProgress -= incrementTimer
-                updateProgressBar.invoke()
-            }
-        }
-        binding.checkbox.setOnCheckedChangeListener { _, isCheck ->
-            if (isCheck) {
-                binding.decrement.isEnabled = true
-                binding.increment.isEnabled = isCheck
-                binding.slider.isEnabled = isCheck
-                binding.textViewTimer.setTextColor(resources.getColor(R.color.purple_500))
-                checked("Checked")
-            } else {
-                binding.decrement.isEnabled = false
-                binding.increment.isEnabled = isCheck
-                binding.slider.isEnabled = isCheck
-                binding.textViewTimer.setTextColor(resources.getColor(android.R.color.darker_gray))
-                checked("Unchecked")
-            }
-        }
-        binding.switchMaterial.setOnCheckedChangeListener { _, isSwitch ->
-            if (isSwitch) {
-                binding.imageView.setColorFilter(getColor(R.color.purple_500))
-                checked("Switch on")
-            } else {
-                binding.imageView.setColorFilter(getColor(android.R.color.darker_gray))
-                checked("Switch off")
+        binding.slider.addOnChangeListener { _, value, _ ->
+            binding.textViewTimer.text = value.toInt().toString()
+            binding.progressBarCircular.let {
+                it.max = value.toInt()
+                it.progress = value.toInt()
             }
         }
 
-        binding.radioGroup.setOnCheckedChangeListener { _, id ->
-            when (id) {
-                binding.radioButtonOne.id -> showSnackBar("one checked")
-                binding.radioButtonTwo.id -> showSnackBar("two checked")
+        binding.start.setOnClickListener {
+            binding.start.text = getString(R.string.stop)
+            var currentCount = (binding.progressBarCircular.max).toLong() * 1000
+            startCountDownTimer(currentCount)
+            var count = binding.progressBarCircular.progress
+            scope.launch(Dispatchers.Default) {
+                while (count >= 0) {
+                    count--
+                    binding.progressBarCircular.progress = count
+                    delay(1000)
+                }
+                binding.start.text = getString(R.string.start)
+                update.invoke()
             }
         }
     }
 
-    private fun checked(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun showSnackBar(message: String) {
-        val contextView = findViewById<View>(android.R.id.content)
-        Snackbar.make(contextView, message, Snackbar.LENGTH_LONG)
-            .setAction("close") {
-                // Responds to click on the action
+    private fun startCountDownTimer(timeMillis: Long) {
+        timer?.cancel()
+        timer = object : CountDownTimer(timeMillis, 1) {
+            override fun onTick(time: Long) {
+                binding.textViewTimer.text = (time / 1000).toString()
             }
-            .setBackgroundTint(contextView.context.getColor(R.color.purple_200))
-            .setActionTextColor(contextView.context.getColor(R.color.white))
-            .show()
-    }
 
+            override fun onFinish() {
+                binding.textViewTimer.text = binding.progressBarCircular.max.toString()
+            }
+        }.start()
+    }
 }
