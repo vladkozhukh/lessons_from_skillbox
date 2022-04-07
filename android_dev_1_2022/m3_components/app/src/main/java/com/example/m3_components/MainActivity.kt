@@ -36,10 +36,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val currentCount = binding.progressBarCircular.max
+
         binding.start.setOnClickListener {
+            binding.slider.isEnabled = false
             binding.start.text = getString(R.string.stop)
-            var currentCount = (binding.progressBarCircular.max).toLong() * 1000
-            startCountDownTimer(currentCount)
+                startCountDownTimer(currentCount.toLong()*1000)
             var count = binding.progressBarCircular.progress
             scope.launch(Dispatchers.Default) {
                 while (count >= 0) {
@@ -47,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                     binding.progressBarCircular.progress = count
                     delay(1000)
                 }
+                binding.slider.isEnabled = true
                 binding.start.text = getString(R.string.start)
                 update.invoke()
             }
