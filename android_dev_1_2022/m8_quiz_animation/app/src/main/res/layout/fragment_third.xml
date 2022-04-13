@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".navigation.ThirdFragment">
+    tools:context=".navigation.ThirdFragment"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tv_question_one"
@@ -27,7 +28,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_question_one" />
-
 
     <TextView
         android:id="@+id/tv_question_two"
@@ -73,6 +73,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_question_three" />
 
+    <!-- lottie animation view п.5 -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_view_third"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:alpha="0.7"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/checklist_waqas_khalid" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"

@@ -21,9 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- lottie animation view
-            android:alpha="0..1" - прозрачность значение "0"
-    -->
+    <!-- lottie animation view п.5 -->
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_view"
@@ -35,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/textView_first_screen"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/crew_spencer_question" />
+        app:lottie_rawRes="@raw/question_crew_spencer" />
 
     <TextView
         android:id="@+id/tv_lottie"
@@ -43,7 +41,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:maxLines="3"
-        android:text="На анимацию Lottie насмотрелись,  \n теперь жмите Ripple кнопку Готов! ниже"
+        android:text="На анимацию Lottie насмотрелись, \n теперь жмите Ripple кнопку Готов! ниже"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/lottie_view"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +55,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_end="50dp" />
 
+    <!-- Ripple эффект кнопки -->
     <Button
         android:id="@+id/b_ready"
         android:layout_width="150dp"
@@ -71,6 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guideline" />
 
+    <!-- Ripple эффект кнопки -->
     <Button
         android:id="@+id/b_toBegin"
         android:layout_width="150dp"
