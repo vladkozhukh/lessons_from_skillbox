@@ -14,10 +14,12 @@ import com.example.m8_quiz_animation.quiz.QuizStorage
 private val questionText = QuizStorage.getQuiz(QuizStorage.Locale.Ru)
 private lateinit var question1: String
 private lateinit var question2: String
+private lateinit var question3: String
 
 class SecondFragment : Fragment() {
     private var answer1: String = null.toString()
     private var answer2: String = null.toString()
+    private var answer3: String = null.toString()
 
     private var _binding: FragmentSecondBinding? = null
     private val binding get() = _binding!!
@@ -50,6 +52,7 @@ class SecondFragment : Fragment() {
         arguments?.let {
             question1 = it.getString("ARG_QUESTION_1")!!
             question2 = it.getString("ARG_QUESTION_2")!!
+            question3 = it.getString("ARG_QUESTION_3")!!
         }
     }
 
@@ -58,11 +61,12 @@ class SecondFragment : Fragment() {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
         binding.bToSend.setOnClickListener {
-            val answers = Question(answers = listOf(answer1, answer2), question = String(), feedback = listOf())
+            val answers = Question(answers = listOf(answer1, answer2, answer3), question = String(), feedback = listOf())
             val bundle = Bundle().apply {
                 putParcelable("ARG_ANSWERS_LIST", answers)
                 putString("ARG_QUESTION_1", binding.tvQuestionOne.text.toString())
                 putString("ARG_QUESTION_2", binding.tvQuestionTwo.text.toString())
+                putString("ARG_QUESTION_3", binding.tvQuestionThree.text.toString())
             }
             findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment, bundle)
         }
@@ -108,6 +112,16 @@ class SecondFragment : Fragment() {
                     binding.rbAnswerThreeOnQTwo.text.toString()
                 binding.rbAnswerFourOnQTwo.id -> answer2 =
                     binding.rbAnswerFourOnQTwo.text.toString()
+            }
+        }
+        binding.rbAnswersOnQuestionThree.setOnCheckedChangeListener { _, button ->
+            when (button) {
+                binding.rbAnswerOneOnQThree.id -> answer3 = binding.rbAnswerOneOnQThree.text.toString()
+                binding.rbAnswerTwoOnQThree.id -> answer3 = binding.rbAnswerTwoOnQThree.text.toString()
+                binding.rbAnswerThreeOnQThree.id -> answer3 =
+                    binding.rbAnswerThreeOnQThree.text.toString()
+                binding.rbAnswerFourOnQThree.id -> answer3 =
+                    binding.rbAnswerFourOnQThree.text.toString()
             }
         }
     }
