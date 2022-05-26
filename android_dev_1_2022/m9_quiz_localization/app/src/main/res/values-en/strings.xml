@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">m9_quiz_localization</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="s_toBegin">Begin</string>
+    <string name="s_toBack">Back</string>
+    <string name="s_first_screen">Hello screen</string>
+    <string name="s_second_screen">Questions test</string>
+    <string name="s_toSend">Send</string>
+    <string name="s_third_screen">Result screen</string>
+    <string name="s_toRepeat">Repeat</string>
+    <string name="s_ready">Ready!</string>
+    <string name="choose_date_of_birth">Choose your date of birth</string>
+    <string name="tv_lottie">We have seen enough of Lottie animation, \n now press the Ripple Ready! button below</string>
+    <string name="textView_helloScreen">Hello, are you ready to take the survey?</string>
+    <string name="ru_en">RU/EN</string>
+    <string name="action_settings">action_settings</string>
+</resources>

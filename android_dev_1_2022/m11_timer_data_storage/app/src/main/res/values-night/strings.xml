@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="b_clear">Очистить</string>
+    <string name="b_save">Сохранить</string>
+    <string name="et_inputText">Введите текст</string>
+    <string name="tv_textField">Текстовое поле</string>
+</resources>

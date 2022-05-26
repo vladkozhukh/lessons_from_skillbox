@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="s_first_screen">Приветствие</string>
+    <string name="s_second_screen">Опрос</string>
+    <string name="s_toSend">Отправить</string>
+    <string name="s_third_screen">Результат опроса</string>
+    <string name="s_toRepeat">Начать заново</string>
+</resources>

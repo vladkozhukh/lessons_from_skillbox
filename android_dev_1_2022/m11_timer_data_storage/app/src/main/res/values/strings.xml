@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">m11_timer_data_storage</string>
+    <string name="b_clear">Очистить</string>
+    <string name="b_save">Сохранить</string>
+    <string name="et_inputText">Введите текст</string>
+    <string name="tv_textField">Текстовое поле</string>
+</resources>

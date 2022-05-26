@@ -1,17 +1,16 @@
 package com.example.m9_quiz_localization.navigation
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.m9_quiz_localization.R
 import com.example.m9_quiz_localization.databinding.FragmentSecondBinding
 import com.example.m9_quiz_localization.quiz.Question
 import com.example.m9_quiz_localization.quiz.QuizStorage
 
-private val questionText = QuizStorage.getQuiz(QuizStorage.Locale.Ru)
 private lateinit var question1: String
 private lateinit var question2: String
 
@@ -58,13 +57,25 @@ class SecondFragment : Fragment() {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
         binding.bToSend.setOnClickListener {
-            val answers = Question(answers = listOf(answer1, answer2), question = String(), feedback = listOf())
+            val answers = Question(
+                answers = listOf(answer1, answer2),
+                question = String(),
+                feedback = listOf()
+            )
             val bundle = Bundle().apply {
                 putParcelable("ARG_ANSWERS_LIST", answers)
                 putString("ARG_QUESTION_1", binding.tvQuestionOne.text.toString())
                 putString("ARG_QUESTION_2", binding.tvQuestionTwo.text.toString())
             }
             findNavController().navigate(R.id.action_SecondFragment_to_ThirdFragment, bundle)
+        }
+    }
+
+    private val questionText by lazy {
+        if (requireActivity().resources.configuration.locale.toLanguageTag() == "ru-RU") {
+            QuizStorage.getQuiz(QuizStorage.Locale.Ru)
+        } else {
+            QuizStorage.getQuiz(QuizStorage.Locale.En)
         }
     }
 

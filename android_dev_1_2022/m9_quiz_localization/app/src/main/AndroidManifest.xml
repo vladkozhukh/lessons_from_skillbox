@@ -12,7 +12,7 @@
         <activity
             android:name="com.example.m9_quiz_localization.navigation.NavigationActivity"
             android:exported="true"
-            android:label="@string/title_activity_navigation"
+            android:label="@string/app_name"
             android:theme="@style/Theme.Simple_theme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

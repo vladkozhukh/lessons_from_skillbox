@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:maxLines="3"
-        android:text="Добрый день, Вы готовы пройти опрос?"
+        android:text="@string/textView_helloScreen"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/lottie_view"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,12 +43,12 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:maxLines="3"
-        android:text="На анимацию Lottie насмотрелись,  \n теперь жмите Ripple кнопку Готов! ниже"
+        android:text="@string/tv_lottie"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/lottie_view"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/guideline"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lottie_view" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -76,11 +76,9 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:background="@drawable/ripple_bg_effect"
-        android:clickable="true"
-        android:focusable="true"
+        android:enabled="false"
         android:gravity="center"
         android:text="@string/s_toBegin"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/b_ready"
