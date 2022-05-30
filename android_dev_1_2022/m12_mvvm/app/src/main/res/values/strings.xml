@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">m12_mvvm</string>
+    <string name="input_text">Input text</string>
+    <string name="query_result_will_be_displayed_here">Query result will be displayed here</string>
+    <string name="search">search</string>
+    <string name="searchResult">По запросу \" %1$s \" ничего не найдено</string>
+</resources>
