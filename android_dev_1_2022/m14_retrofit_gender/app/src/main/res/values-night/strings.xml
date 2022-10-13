@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">m14_retrofit</string>
+    <string name="input_text">Input text here</string>
+    <string name="query_result_will_be_displayed_here">Query result will be displayed here</string>
+    <string name="search">search</string>
+    <string name="searchResult">No results found for \" %1$s \"</string>
+    <string name="reload">reload</string>
+    <string name="gender">gender</string>
+</resources>

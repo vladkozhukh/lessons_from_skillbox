@@ -45,24 +45,13 @@
         app:layout_constraintTop_toBottomOf="@+id/inputTextLayout" />
 
     <TextView
-        android:id="@+id/textViewString"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center|top"
-        android:text="@string/query_result_will_be_displayed_here"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/b_search" />
-
-    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|top"
         android:textStyle="italic"
-        android:text="@string/searchResult"
+        android:text="@string/query_result_will_be_displayed_here"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewString" />
+        app:layout_constraintTop_toBottomOf="@id/b_search" />
 </androidx.constraintlayout.widget.ConstraintLayout>

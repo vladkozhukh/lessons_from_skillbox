@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">m17_recyclerview</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="photo_list_fragment">Photo list fragment</string>
+    <string name="photo_item_fragment">Photo item fragment</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="date">date</string>
+    <string name="sol">sol</string>
+    <string name="camera">camera</string>
+    <string name="rover">rover</string>
+</resources>

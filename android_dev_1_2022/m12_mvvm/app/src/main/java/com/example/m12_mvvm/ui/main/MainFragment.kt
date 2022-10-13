@@ -12,7 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.m12_mvvm.R
 import com.example.m12_mvvm.databinding.MainFragmentBinding
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 
 class MainFragment : Fragment() {
@@ -22,7 +21,6 @@ class MainFragment : Fragment() {
     }
 
     private lateinit var binding: MainFragmentBinding
-
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
@@ -63,28 +61,12 @@ class MainFragment : Fragment() {
                                 binding.inputTextLayout.error = null
                                 binding.bSearch.isEnabled = false
                             }
-                            State.Success -> {
+                            is State.Success -> {
                                 binding.progressBar.isVisible = false
                                 binding.inputTextLayout.error = null
-                                binding.textView.text = resources.getString(
-                                    R.string.searchResult,
-                                    binding.inputText.text.toString()
-                                )
-                            }
-                            is State.Error -> {
-                                binding.progressBar.isVisible = false
-                                binding.inputTextLayout.error = state.inputTextError
+                                binding.textView.text = state.message
                             }
                         }
-                    }
-            }
-        viewLifecycleOwner.lifecycleScope
-            .launchWhenStarted {
-                viewModel.error
-                    .collect { message ->
-                        Snackbar.make(
-                            requireView(), message, Snackbar.LENGTH_SHORT
-                        ).show()
                     }
             }
     }
